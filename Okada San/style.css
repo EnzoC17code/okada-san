@@ -1,0 +1,133 @@
+body {
+    background-color: #000;
+    margin: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.caixa {
+    width: 350px;
+    height: 1500px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.carrossel {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.carrossel input {
+    display: none;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    animation: none;
+    padding: 0;
+    margin: 0;
+    gap: 0;   
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.item {
+    flex: 0 0 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    color: #000;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#s1:checked ~ .slides { transform: translateX(0); }
+#s2:checked ~ .slides { transform: translateX(-100%); }
+#s3:checked ~ .slides { transform: translateX(-200%); }
+
+@keyframes autoSlide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%) ;}
+    100% { transform: translateX(0); }
+}
+
+.slides {
+    animation: autoSlide 30s infinite ease-in-out;
+}
+
+.titulo-combos {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+}
+
+.combo {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.combo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.combo-info {
+    flex: 1;
+}
+
+.combo-info summary {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.combo-info p {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #333;
+}
+
+.combo-preco {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e60000;
+    white-space: nowrap;
+}
